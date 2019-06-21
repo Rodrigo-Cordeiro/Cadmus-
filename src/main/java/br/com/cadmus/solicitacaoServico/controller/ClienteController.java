@@ -29,13 +29,16 @@ public class ClienteController {
 	@PostMapping("/criar/{nome}")
 	public String criar(@PathVariable(value = "nome")String nome) {
 		
-		try {
-			String urlDecoder = URLDecoder.decode(nome, "UTF-8");
-			Cliente cli = clienteService.criar(urlDecoder);
-			if(cli != null)
-				return "O cliente" + cli.toString() + " foi criado com sucesso.";
-		} catch (UnsupportedEncodingException e) {
-			return "O cliente não foi criado";
+		if(nome.length()>3) {
+			try {
+				
+				String urlDecoder = URLDecoder.decode(nome, "UTF-8");
+				Cliente cli = clienteService.criar(urlDecoder);
+				if(cli != null)
+					return "O cliente" + cli.toString() + " foi criado com sucesso.";
+			} catch (UnsupportedEncodingException e) {
+				return "O cliente não foi criado";
+			}
 		}
 		return "O cliente não foi criado";
 		

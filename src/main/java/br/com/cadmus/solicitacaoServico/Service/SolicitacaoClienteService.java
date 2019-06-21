@@ -1,8 +1,8 @@
 package br.com.cadmus.solicitacaoServico.Service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import br.com.cadmus.solicitacaoServico.Repository.SolicitacaoRepository;
@@ -21,8 +21,10 @@ public class SolicitacaoClienteService {
 		return solicitacaoRepo.save(solicitacao);
 	}
 	
-	public List<SolicitacaoCliente> listarSolicitacoes(){
-		return solicitacaoRepo.findAll();
+	public Page<SolicitacaoCliente> listarSolicitacoes(Integer pageAtual, Integer tamanho){
+		Page<SolicitacaoCliente> page = solicitacaoRepo.findAll(PageRequest.of(pageAtual, tamanho));
+		
+		return page;
 	}
 	
 }

@@ -67,7 +67,7 @@ public class SolicitacaoCliente implements Serializable{
 
 	@Override
 	public String toString() {
-		return "SolicitacaoCliente [id=" + id + ", mensagemSolicitacao=" + mensagemSolicitacao + "]";
+		return "SolicitacaoCliente id=" + id + mensagemSolicitacao;
 	}
 
 	

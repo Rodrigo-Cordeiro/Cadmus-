@@ -1,9 +1,9 @@
 package br.com.cadmus.solicitacaoServico.controller;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,9 +39,11 @@ public class WebController {
 
 		Optional<Cliente> cliente = clienteService.encontrarCliente(id);
 
-		if (cliente != null) {
+		if (cliente.isPresent()) {
+			Cliente response = cliente.get();
 			idContexto = id;
-			jsmClient.send("Solicitação: " + mensagem + " Feita por: " + cliente.toString());
+			jsmClient.send(mensagem + " - Detalhes do Cliente: " + response.toString());
+			
 			return "Sucesso: Mensagem enviada";
 		}
 		return "Erro: Mensagem não enviada !";
@@ -50,15 +52,17 @@ public class WebController {
 
 	@ApiOperation(value = "${swagger.api.operation.webController.receber.value}", notes = "${swagger.api.operation.webController.receber.notes}", tags = {
 	"WebController" })
-	@GetMapping(value = "/receive/")
+	@GetMapping(value = "/receive")
 	public String receive() {
 		return jsmClient.receive(idContexto);
 	}
 	
 	@ApiOperation(value = "${swagger.api.operation.webController.listarSolicitacoes.value}", notes = "${swagger.api.operation.webController.listarSolicitacoes.notes}", tags = {
 	"WebController" })
-	@GetMapping(value="/listar-solicitacoes")
-	public List<SolicitacaoCliente> listarSolicitacoes() {
-		return solicitacaoService.listarSolicitacoes();
+	@GetMapping(value="/listar-solicitacoes/")
+	public Page<SolicitacaoCliente> listarSolicitacoes(@RequestParam(value="page") Integer page, 
+													   @RequestParam(value="tamanho")Integer tamanho) {
+		
+		return solicitacaoService.listarSolicitacoes(page, tamanho);
 	}
 }

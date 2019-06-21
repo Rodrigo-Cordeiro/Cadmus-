@@ -32,7 +32,8 @@ public class JmsClientImpl implements JmsClient{
 	
 	 if(clienteService.encontrarCliente(idCliente)!= null) {
 		Cliente response = clienteService.adicionaSolicitacao(jmsConsumer.receive(), idCliente);
-		return response.getPedido().toString();
+		if(response != null)
+			return response.getPedido().toString();
 	 }
 	  
     return "Cliente não encontrado" ;
