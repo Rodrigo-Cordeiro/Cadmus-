@@ -26,7 +26,7 @@ public class ClienteController {
 	
 	@ApiOperation(value = "${swagger.api.operation.cliente.criar.value}", notes = "${swagger.api.operation.cliente.criar.notes}", tags = {
 	"Cliente" })
-	@PostMapping("/criar/{nome}")
+	@PostMapping("/novo/{nome}")
 	public String criar(@PathVariable(value = "nome")String nome) {
 		
 		if(nome.length()>3) {

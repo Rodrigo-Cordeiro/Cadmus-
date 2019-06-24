@@ -59,7 +59,7 @@ public class WebController {
 	
 	@ApiOperation(value = "${swagger.api.operation.webController.listarSolicitacoes.value}", notes = "${swagger.api.operation.webController.listarSolicitacoes.notes}", tags = {
 	"WebController" })
-	@GetMapping(value="/listar-solicitacoes/")
+	@GetMapping(value="/solicitacoes")
 	public Page<SolicitacaoCliente> listarSolicitacoes(@RequestParam(value="page") Integer page, 
 													   @RequestParam(value="tamanho")Integer tamanho) {
 		
