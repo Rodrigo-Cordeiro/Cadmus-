@@ -1,0 +1,67 @@
+1)Esse erro acontece porque a bean não foi mapeada corretamente. Para corrigir esse erro, basta adicionar a anotação @Service na classe ServiceImpl
+
+2) Esse erro ocorreu, porque não foi encontrado a referência para nova conexão. Para corrigir o erro, 
+basta adicionar a depedência no module.xml 
+
+
+3) O build está apontando para pasta JRE, para fazer o build é necessário o JDK. Portanto,
+para solucionar o problema, basta - caso necessário - instalar o JDK e alterar as variáveis
+de ambiente. 
+
+
+4) Segundo o gitflow, deveria ser criado uma branch para a criação de uma feature (nova funcionalidade) e uma branch de bugFix(correção de um problema).
+
+5) Deve ser usada a anotação @Autowired que é a anotação responsável por fazer a injeção de dependência ou inversão de controle.
+
+6) Tratando-se de SpringBoot 
+	a - É incorreto, pois o processar na URL refere-se a um parametro e não uma função. 
+	b - O erro disparado não ter relação com o método
+	c - Incorreto, o parametro solicitado foi passado.
+	d - Substituindo a anotação @Controller por @RestController
+
+
+7) NOSQL
+
+var num = 1;
+var nmDestino: "CADMUS"
+
+a) db.messages.findOne({id:num})
+
+b) db.messages.find({}, {"destino":"CADMUS"}).limit(3)
+
+c) db.messages.find({ aDate: { $gt: ISODate('2019-06-21') } })
+
+d) db.messages.find({}, {"Destino" : nmDestino, "id": num}).sort({"dtCriacao" : -1})
+
+
+QUESTÕES DE PLSQL
+
+1) alternativa C 
+2) Alternativa E 
+3) 
+    DECODE - Trabalha de maneira dinâmica para obter o retorno de uma coluna com base em uma condição 
+    NVL - Substitui o valor NULL por outro valor
+    SUBSTR - Retorna uma parte de uma String 
+    COUNT(*) - Retorna a contagem de alguma expressão
+    HAVING - Utilizada com GROUPBY - serve para indicar uma expressão
+    GROUP BY - Utilizado para agrupar linhas da tabela seguindo algum critério escolhido
+    INSTR - Tem como função buscar um fragmento de uma String dentro de outra string 
+    LPAD - Adiciona um determinado caractere a esquerda da String 
+
+4)Um Dblink tem como finalidade, possibilitar o acesso a objetos de outro banco de dados.
+
+5)Grant - é um comando que permite definir permissões, a tabelas, procedures, functions etc, para determinada Rule. 
+
+
+6) 
+
+7) Procedure → são blocos com instruções que não precisam obrigatoriamente retornar um valor
+	Função → São semelhante as procedures, a diferença está no fato de que são obrigadas a retornar um valor
+	Package → São utilizados para agrupar componentes como variáveis, stored Procedures e Functions (entre outras coisas).
+
+8) UNION realiza um DISTINCT entre os SELECTS, ou seja, os registros que tiverem informação repetida só apareceram uma vez no ResultSet
+UNION ALL simplesmente une os SELECTS, ou seja, os registros que tiverem informação repetido apareceram no ResultSet quantas vezes eles existirem
+
+9)  a) WHEN NO_DATA_FOUND 
+    b) DUP_VAL_ON_INDEX, OTHERS
+    c) NO_DATA_FOUND
