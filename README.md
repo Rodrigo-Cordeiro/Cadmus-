@@ -15,4 +15,6 @@ Projeto de Solicitação Serviços
   2) Realizar a chamada do Produce passando o id do cliente cadastrado e a mensagem desejada. 
   3) Realizar a chamada do receive (A partir desse ponto será persistido no banco de dados as informações passadas, de modo que a entidade cliente seja atualizada)
   4) Realizar um GET pelo ID - para verificar se cliente agora possui um pedido associacao
-  5) Realizar um GET pela lista pra verificar se a mesma está populada. 
+  5) Realizar um GET pela lista pra verificar se a mesma está populada. (ENDPOINT PAGINADO) 
+  
+  
